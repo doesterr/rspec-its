@@ -1,3 +1,7 @@
+### 1.1.1 / 2014-04-13
+Changes:
+* Deprecate should and should not, to encourage the usage of is_expected
+
 ### 1.1.0 / 2014-04-13
 [full changelog](http://github.com/rspec/rspec-its/compare/v1.0.1...v1.1.0)
 

@@ -122,10 +122,19 @@ module RSpec
         end
 
         def should(matcher=nil, message=nil)
+          warn %(
+            Using its with should is deprecated, use is_expected.to instead.
+            Called at #{caller.first}
+          )
           RSpec::Expectations::PositiveExpectationHandler.handle_matcher(__its_subject, matcher, message)
         end
 
         def should_not(matcher=nil, message=nil)
+          warn %(
+            Using its with should_not is deprecated, use is_expected.not_to instead.
+            Called at #{caller.first}
+          )
+          
           RSpec::Expectations::NegativeExpectationHandler.handle_matcher(__its_subject, matcher, message)
         end
 

@@ -24,17 +24,17 @@ And require it as:
 
 Use the `its` method to generate a nested example group with
 a single example that specifies the expected value of an attribute of the
-subject using `should`, `should_not` or `is_expected`.
+subject using `is_expected`.
 
 `its` accepts a symbol or a string, and a block representing the example.
 
-    its(:size)    { should eq(1) }
-    its("length") { should eq(1) }
+    its(:size)    { is_expected.to eq(1) }
+    its("length") { is_expected.to eq(1) }
 
 You can use a string with dots to specify a nested attribute (i.e. an
 attribute of the attribute of the subject).
 
-    its("phone_numbers.size") { should_not eq(0) }
+    its("phone_numbers.size") { is_expected.not_to eq(0) }
 
 When the subject implements the `[]` operator, you can pass in an array with a single key to
 refer to the value returned by that operator when passed that key as an argument.
@@ -49,11 +49,11 @@ For hashes, multiple keys within the array will result in successive accesses in
 For other objects, multiple keys within the array will be passed as separate arguments in a single method call to [], as in:
 
     subject { Matrix[ [:a, :b], [:c, :d] ] }
-    its([1,1]) { should eq(:d) }
+    its([1,1]) { is_expected.to eq(:d) }
 
 Metadata arguments are supported.
 
-    its(:size, focus: true) { should eq(1) }
+    its(:size, focus: true) { is_expected.to eq(1) }
 
 ## Contributing
 
